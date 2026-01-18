@@ -1,49 +1,47 @@
-# Adoption Outcomes in Animal Shelters  
-## A Regression Analysis of Key Animal Traits
+# Animal Adoption Analysis
 
-### Project Overview
-This project studies how animal characteristics affect adoption outcomes in public animal shelters. Using over 20,000 records from Sonoma County, the analysis examines whether factors such as sterilization status, animal size, health condition, and time spent in the shelter influence the likelihood of adoption.
+## Project Overview
+This project analyzes animal shelter intake and outcome data to study the factors associated with animal adoption outcomes. Using regression analysis, the project examines how sterilization status, animal size, health condition, and length of stay in the shelter relate to the probability of adoption.
 
-This project was completed for ECON 326 (Applied Econometrics) at the University of British Columbia.
+The goal of this project is to apply econometric methods to a real-world dataset and demonstrate a clean, reproducible, and modular data analysis workflow.
 
 ---
 
-### Data
-- Source: Sonoma County Open Data Portal
-- Observations: 20,961 records (18,010 after data cleaning)
-- Outcome variable: Adoption status (binary)
+## Data
+The raw dataset contains **28,958 observations** from an animal shelter intake and outcome database. After data cleaning and variable construction, **20,961 observations** were retained for analysis.
 
-Key explanatory variables include:
+### Key variables include:
+- Adoption outcome (binary indicator: adoption vs. non-adoption)
 - Sterilization status
 - Animal size (ordinal scale)
-- Days in shelter (log transformed)
-- Health condition
+- Days in shelter
+- Health condition at outcome
+
+Raw data files are not tracked in this repository due to file size considerations.
 
 ---
 
-### Methodology
-- Linear Probability Models (LPM)
-- Log transformation for skewed variables
-- Interaction terms
-- Robust standard errors (White HC1)
-- Model diagnostics including VIF and RESET tests
+## Methodology
+The analysis follows a modular workflow consisting of four main steps:
+
+1. Data cleaning and variable construction  
+2. Descriptive statistics  
+3. Regression modeling  
+4. Robustness checks and diagnostics  
+
+A linear probability model is used as the baseline specification. Additional model specifications include log transformations, interaction terms, and robustness checks to assess the stability of results.
 
 ---
 
-### Key Findings
-- Sterilized animals have a significantly higher probability of being adopted
-- Larger animals are less likely to be adopted
-- Health condition strongly affects adoption outcomes
-- Time in shelter shows non linear effects on adoption likelihood
-
----
-
-### Tools
-- R for data cleaning and regression analysis
-- GitHub for version control and project hosting
-
----
-
-### Report
-The full econometric analysis and interpretation are available in the final report:
-- Econ 326 project final report PDF
+## Repository Structure
+animal-adoption-analysis/
+├── code/
+│ ├── 01_data_cleaning.R
+│ ├── 02_summary_statistics.R
+│ ├── 03_regression_models.R
+│ └── 04_robustness_checks.R
+├── data/
+│ ├── raw/
+│ └── processed/
+│ └── analysis_data.csv
+└── README.md
